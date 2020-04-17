@@ -1,0 +1,38 @@
+<odoo>
+  <data>    
+
+    <!--Formulaire des publipostage -->
+
+        <record model="ir.actions.act_window" id="publipostage_client_action">
+            <field name="name">Client</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Creer le premier client</p>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="client_form">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="before"> 
+                    <field string="N° CNIB" name="numero_cnib"/>
+                </xpath>
+
+                <xpath expr="//field[@name='vat']" position="after"> 
+                    <field string="N° IFU" name="numeo_ifu"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--     <menuitem name="Liste de diffusion" id="keo_marketing_menu_client" parent="keo_marketing_menu_root"/>
+ -->
+    <menuitem name="Client" id="keo_marketing_menu_1_client" parent="keo_marketing_menu_root"
+              action="publipostage_client_action"/>
+    
+ </data>
+</odoo>

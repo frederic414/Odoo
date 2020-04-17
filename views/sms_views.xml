@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="keo_marketing_sms_list">
+      <field name="name">SMS list</field>
+      <field name="model">keo_marketing.sms</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="contact_list_ids"/>
+          <field name="messages_sms"/>
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit form view definition -->
+    
+    <record model="ir.ui.view" id="keo_marketing_sms_form">
+      <field name="name">SMS form</field>
+      <field name="model">keo_marketing.sms</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button string ="envoyer maintenant" name ="send_sms" type = "object" class = "oe_highlight"></button>
+            <field name="status" widget = "statusbar" readonly="1" nolabel="1"></field>
+          </header>
+          <sheet>
+            <group>
+              <field name="contact_list_ids"  widget = "many2many_tags"/>
+              <field name="messages_sms" widget = "sms_widget"/>
+            </group>
+            <group>
+              <field name = "programmer"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="keo_marketing_action_window_sms">
+      <field name="name">SMS</field>
+      <field name="res_model">keo_marketing.sms</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="keo_marketing.menu_1" parent="keo_marketing.menu_root"/>
+    <menuitem name="Menu 2" id="keo_marketing.menu_2" parent="keo_marketing.menu_root"/>
+    -->
+    <!-- actions -->
+    
+    <menuitem name="SMS" id="keo_marketing_menu_1_sms" parent="keo_marketing_menu_1"
+              action="keo_marketing_action_window_sms"/>
+  <!--  <menuitem name="Server to list" id="keo_marketing" parent="keo_marketing.menu_2"
+              action="keo_marketing.action_server"/>
+    -->
+  </data>
+</odoo>

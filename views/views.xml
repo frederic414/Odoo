@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="keo_marketing.list">
+      <field name="name">keoMarketing list</field>
+      <field name="model">keo_marketing.keo_marketing</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="keo_marketing.action_window">
+      <field name="name">keoMarketing window</field>
+      <field name="res_model">keo_marketing.keo_marketing</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="keo_marketing.action_server">
+      <field name="name">keoMarketing server</field>
+      <field name="model_id" ref="model_keo_marketing_keo_marketing"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="keoMarketing" id="keo_marketing.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="keo_marketing.menu_1" parent="keo_marketing.menu_root"/>
+    <menuitem name="Menu 2" id="keo_marketing.menu_2" parent="keo_marketing.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="keo_marketing.menu_1_list" parent="keo_marketing.menu_1"
+              action="keo_marketing.action_window"/>
+    <menuitem name="Server to list" id="keo_marketing" parent="keo_marketing.menu_2"
+              action="keo_marketing.action_server"/>
+    -->
+  </data>
+</odoo>

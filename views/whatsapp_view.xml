@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="keo_marketing_whatsapp_list">
+      <field name="name">WhatsApp list</field>
+      <field name="model">keo_marketing.keo_marketing</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="destinataires"/>
+          <field name="messages_whatsapp"/>
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit form view definition -->
+    
+    <record model="ir.ui.view" id="keo_marketing_whatsapp">
+      <field name="name">WhatsApp form</field>
+      <field name="model">keo_marketing.keo_marketing</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button string ="envoyer maintenant" name ="send_whatsapp" type = "object" class = "oe_highlight"></button>
+            <field name="stat" widget = "statusbar" readonly="1"></field>
+          </header>
+          <sheet>
+            <group>
+              <field name="destinataires"/>
+              <field name="messages_whatsapp" widget = "html_frame"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="keo_marketing_action_window_whatsapp">
+      <field name="name">WhatsApp</field>
+      <field name="res_model">keo_marketing.keo_marketing</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="keo_marketing.menu_1" parent="keo_marketing.menu_root"/>
+    <menuitem name="Menu 2" id="keo_marketing.menu_2" parent="keo_marketing.menu_root"/>
+    -->
+    <!-- actions -->
+    
+    <menuitem name="WhatsApp" id="keo_marketing_menu_1_whatsapp" parent="keo_marketing_menu_1"
+              action="keo_marketing_action_window_whatsapp"/>
+  <!--  <menuitem name="Server to list" id="keo_marketing" parent="keo_marketing.menu_2"
+              action="keo_marketing.action_server"/>
+    -->
+  </data>
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+  <data>    
+
+    <!--Formulaire des publipostage -->
+
+        <record model="ir.actions.act_window" id="publipostage_contact_action">
+            <field name="name">Contact</field>
+            <field name="res_model">mail.mass_mailing.contact</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Creer le premier message</p>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="contact_form">
+            <field name="name">mail.mass_mailing.contact.form.inherit</field>
+            <field name="model">mail.mass_mailing.contact</field>
+            <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_contact_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='title_id']" position="before"> 
+                    <field string="Telephone" name="telephone"/>
+                </xpath>
+            </field>
+        </record>
+
+    <menuitem name="Liste de diffusion" id="keo_marketing_menu_contact" parent="keo_marketing_menu_root"/>
+
+    <menuitem name="contact" id="keo_marketing_menu_1_contact" parent="keo_marketing_menu_contact"
+              action="publipostage_contact_action"/>
+
+
+<!--            <record model="ir.actions.act_window" id="publipostage_diffusion_action">
+            <field name="name">Liste de diffusion</field>
+            <field name="res_model">mail.mass_mailing.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Creer une première liste de diffusion</p>
+            </field>
+        </record>
+
+<menuitem name="Liste de diffusion" id="keo_marketing_menu_1_diffusion" parent="keo_marketing_menu_contact"
+              action="publipostage_contact_diffusion"/> -->
+    
+ </data>
+</odoo>
