@@ -8,3 +8,4 @@ class contact(models.Model):
 
 
     telephone = fields.Char(string = 'téléphone', required = True, help = 'Entrer votre numero de téléphone')
+    
