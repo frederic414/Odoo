@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class client(models.Model):
-	_name = 'res.partner'
+	
 	_inherit = 'res.partner'
 
 
